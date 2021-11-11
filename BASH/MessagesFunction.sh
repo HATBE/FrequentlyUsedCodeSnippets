@@ -1,5 +1,10 @@
 SILENT=false
 
+readonly F_RED=$(tput setaf 1)
+readonly F_GREEN=$(tput setaf 2)
+readonly F_YELLOW=$(tput setaf 3)
+readonly F_RESET=$(tput sgr0)
+
 messages() {
     if $SILENT; then return; fi
     local MODE=$1
