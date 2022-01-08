@@ -36,5 +36,5 @@ public static function timeAgo($datetime, $full = false) {
     }
 
     if (!$full) $string = array_slice($string, 0, 1);
-    return $string ? 'vor ' . implode(', ', $string) : 'just now';
+    return $string ? 'vor ' . implode(', ', $string) : 'Gerade eben';
 }
