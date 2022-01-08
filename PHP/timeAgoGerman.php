@@ -2,7 +2,7 @@
 // https://stackoverflow.com/questions/1416697/converting-timestamp-to-time-ago-in-php-e-g-1-day-ago-2-days-ago
 // but in German format
 
-public static function timeAgo($datetime, $full = false) {
+function timeAgo($datetime, $full = false) {
     $now = new DateTime;
     $ago = new DateTime($datetime);
     $diff = $now->diff($ago);
