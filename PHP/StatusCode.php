@@ -1,6 +1,4 @@
 <?php
-    namespace app;
-    
     class StatusCode {
         private $json;
 
