@@ -1,6 +1,8 @@
 <?php
+    namespace app;
+    
     class StatusCode {
-        private $status, $json;
+        private $json;
 
         private $errors = [
             0 => 'Undefined',
@@ -68,31 +70,35 @@
             511 => 'Network Authentication Required',
         ];
 
-        public function __construct(int $status, $json = true) {
-            $this->status = $status;
+        public function __construct($json = true) {
             $this->json = $json;
         }
 
-        public function display(String $msg = null) {
-            $status = 0;
-            $name = $this->errors[0];
-
-            if(isset($this->errors[$this->status])) {
-                $status = $this->status;
-                $name = $this->errors[$this->status];
+        public function display(int $status, String $msg = null) {
+            if(isset($this->errors[$status])) {
+                $statusCode = $status;
+                $name = $this->errors[$status];
+            } else {
+                $statusCode = 0;
+                $name = $this->errors[0];
             }
 
             $response = [
                 'httpstatus' => [
                     'name' => $name
                 ],
-                'status' => $status
+                'status' => $statusCode
             ];
 
             if($msg) $response['httpstatus']['message'] = $msg;
 
-            http_response_code($this->status);
-            echo $this->json ? json_encode($response, true) : $response;
+            http_response_code($statusCode);
+            if($this->json) {
+                header('Content-Type: application/json; charset=utf-8');
+                echo json_encode($response);
+            }
+            echo $response;
+            
             return;
         }
     }
