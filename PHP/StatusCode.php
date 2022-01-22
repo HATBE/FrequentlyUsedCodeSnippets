@@ -94,8 +94,9 @@
             if($this->json) {
                 header('Content-Type: application/json; charset=utf-8');
                 echo json_encode($response);
+            } else {
+                echo $response;
             }
-            echo $response;
             
             return;
         }
