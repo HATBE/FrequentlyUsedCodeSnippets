@@ -10,9 +10,9 @@ public class ConfigHandler {
 	}
 	
 	public void addDefault(String path, Object obj) {
-			config.addDefault(path, obj);
-			config.options().copyDefaults(true);
-			main.saveConfig();
+		config.addDefault(path, obj);
+		config.options().copyDefaults(true);
+		main.saveConfig();
 	}
 		
 	public FileConfiguration getConfig() {
