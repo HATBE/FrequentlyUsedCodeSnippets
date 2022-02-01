@@ -2,7 +2,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 public class ConfigHandler {
 	private Main main;
-	private FileConfiguration config;
+	protected FileConfiguration config;
 	
 	public ConfigHandler(Main main) {
 		this.main = main;
@@ -25,6 +25,10 @@ public class ConfigHandler {
 	
 	public void set(String path, Object obj) {
 		config.set(path, obj);
+	}
+	
+	public Object get(String path) {
+		return config.get(path);
 	}
 	
 	public void delete(String path) {
