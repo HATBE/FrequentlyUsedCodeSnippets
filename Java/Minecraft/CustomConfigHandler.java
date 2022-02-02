@@ -3,13 +3,12 @@ import java.io.IOException;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 public class CustomConfigHandler extends ConfigHandler {
-	
 	private File configFile;
 
 	public CustomConfigHandler(Main main, String name) {
 		super(main);
 		
-		configFile = new File(main.getDataFolder(), name);
+		configFile = new File(main.getDataFolder(), name + ".yaml");
 		config = YamlConfiguration.loadConfiguration(configFile);
 		
 		save();
