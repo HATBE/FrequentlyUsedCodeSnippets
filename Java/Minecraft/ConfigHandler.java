@@ -12,7 +12,8 @@ public class ConfigHandler {
 	public void addDefault(String path, Object obj) {
 		config.addDefault(path, obj);
 		config.options().copyDefaults(true);
-		main.saveConfig();
+		
+		save();
 	}
 		
 	public FileConfiguration getConfig() {
@@ -46,5 +47,4 @@ public class ConfigHandler {
 	public int getInt(String path) {
 		return config.getInt(path);
 	}
-		
 }
