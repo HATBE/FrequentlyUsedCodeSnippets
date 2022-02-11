@@ -19,7 +19,7 @@
                 $this->handler = new PDO($conn, $this->user, $this->password, $opt);
             } catch(PDOException $e) {
                 $this->error = $e->getMessage();
-                echo $this->error;
+                error_log($this->error, 0);
                 exit();
             }
         }
